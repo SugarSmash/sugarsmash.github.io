@@ -45,6 +45,29 @@
             </div>
         </section>
 
+        <section class="math-practice">
+            <h2>Math Practice</h2>
+            <p>Practice your addition skills!</p>
+
+            <div class="math-container">
+                <div class="math-question">
+                    <span id="num1" class="math-number">23</span>
+                    <span class="math-operator">+</span>
+                    <span id="num2" class="math-number">17</span>
+                    <span class="math-equals">=</span>
+                    <input type="number" id="answer-input" class="math-input" placeholder="?">
+                </div>
+
+                <div class="math-buttons">
+                    <button onclick="checkAnswer()" class="math-button check-button">Check Answer</button>
+                    <button onclick="newQuestion()" class="math-button new-button">New Question</button>
+                </div>
+
+                <div id="feedback" class="math-feedback"></div>
+                <div class="math-score">Score: <span id="score">0</span> / <span id="total">0</span></div>
+            </div>
+        </section>
+
         <section>
             <h2>Turn Glucose Management Into a Game</h2>
             <p>Glucose Smash connects to your LibreLinkUp account to help you track your glucose levels in a fun, motivating way. Earn achievements, track streaks, and celebrate your successes.</p>
@@ -133,5 +156,68 @@
         <p>&copy; 2025 Glucose Smash. All rights reserved.</p>
         <p><a href="privacy.html">Privacy Policy</a> | <a href="support.html">Support</a></p>
     </footer>
+
+    <script>
+        let currentAnswer = 0;
+        let score = 0;
+        let total = 0;
+
+        function generateQuestion() {
+            // Generate two random numbers between 10 and 50 (kid-friendly)
+            const num1 = Math.floor(Math.random() * 41) + 10; // 10-50
+            const num2 = Math.floor(Math.random() * 41) + 10; // 10-50
+
+            currentAnswer = num1 + num2;
+
+            document.getElementById('num1').textContent = num1;
+            document.getElementById('num2').textContent = num2;
+            document.getElementById('answer-input').value = '';
+            document.getElementById('feedback').textContent = '';
+            document.getElementById('answer-input').focus();
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById('answer-input').value);
+            const feedback = document.getElementById('feedback');
+
+            if (isNaN(userAnswer)) {
+                feedback.textContent = 'Please enter a number!';
+                feedback.className = 'math-feedback';
+                return;
+            }
+
+            total++;
+
+            if (userAnswer === currentAnswer) {
+                score++;
+                feedback.textContent = '🎉 Correct! Great job!';
+                feedback.className = 'math-feedback correct';
+            } else {
+                feedback.textContent = `Not quite. The answer is ${currentAnswer}. Try the next one!`;
+                feedback.className = 'math-feedback incorrect';
+            }
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('total').textContent = total;
+        }
+
+        function newQuestion() {
+            generateQuestion();
+        }
+
+        // Generate first question when page loads
+        window.onload = function() {
+            generateQuestion();
+        };
+
+        // Allow Enter key to check answer
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('answer-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkAnswer();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

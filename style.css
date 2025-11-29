@@ -325,6 +325,130 @@ a:hover {
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
+/* Math Practice Section */
+.math-practice {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    margin: 3rem 0;
+}
+
+.math-practice h2 {
+    text-align: center;
+    color: white;
+    margin-top: 0;
+}
+
+.math-practice > p {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.math-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.math-question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.math-number {
+    color: #667eea;
+}
+
+.math-operator, .math-equals {
+    color: #764ba2;
+}
+
+.math-input {
+    width: 120px;
+    font-size: 3rem;
+    text-align: center;
+    border: 3px solid #667eea;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+.math-input:focus {
+    outline: none;
+    border-color: #764ba2;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+.math-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.math-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.check-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.new-button {
+    background: #f8f9fa;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.math-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.math-button:active {
+    transform: translateY(0);
+}
+
+.math-feedback {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    min-height: 2rem;
+}
+
+.math-feedback.correct {
+    color: #28a745;
+}
+
+.math-feedback.incorrect {
+    color: #dc3545;
+}
+
+.math-score {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;
+}
+
 @media (max-width: 768px) {
     header {
         padding: 1rem 0;
@@ -422,5 +546,39 @@ a:hover {
 
     .stat-label {
         font-size: 0.75rem;
+    }
+
+    .math-practice {
+        padding: 2rem 1rem;
+    }
+
+    .math-container {
+        padding: 1.5rem;
+    }
+
+    .math-question {
+        font-size: 2rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .math-input {
+        width: 100px;
+        font-size: 2rem;
+    }
+
+    .math-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .math-button {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .math-feedback {
+        font-size: 1.1rem;
     }
 }
